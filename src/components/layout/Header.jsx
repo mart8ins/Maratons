@@ -5,7 +5,7 @@ function Header() {
         <div className="header">
             <div className="header_left"><p className="title"><Link to="/">Izskrien Rīgu!</Link></p></div>
             <div className="header_right">
-                Dalībnieki
+                <Link to="/list">Dalībnieku reģistrācijas</Link>
             </div>
         </div>
     )

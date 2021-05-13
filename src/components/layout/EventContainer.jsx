@@ -1,15 +1,21 @@
 import EventCard from "./EventCard";
-import { events } from "../../events";
+import { connect } from "react-redux";
 
 function renderEvents(event) {
     return <EventCard key={event.id} event={event} />
 }
 
-function EventContainer() {
+function EventContainer({ events }) {
     return (
         <div className="event_container">
             {events.map(renderEvents)}
         </div>
     )
 }
-export default EventContainer;
+
+const mapStateToProps = (state) => {
+    return {
+        events: state.events
+    }
+}
+export default connect(mapStateToProps)(EventContainer);

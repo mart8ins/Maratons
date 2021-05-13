@@ -54,7 +54,7 @@ const events = [
         distance: ["20km", "10km", "5km"],
         date: "01.09.2021",
         image: "https://images.unsplash.com/photo-1588943680936-7754ec833045?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=891&q=80",
-
+        registrationOpen: false
     },
     {
         id: 4,
@@ -96,32 +96,48 @@ const events = [
     }
 ]
 
-const participants = [
+const runners = [
     {
         id: 1,
-        name: "Martins Skinkis",
-        event: "Panikas skrējiens",
+        age: "33",
         distance: "10km",
-        registrationDate: "05.04.2021",
-        number: 4225
+        email: "martins_skinkis@inbox.lv",
+        event: "Imantas priedes",
+        firstName: "Mārtiņš",
+        gender: "Vīrietis",
+        lastName: "Šķiņķis"
     },
     {
         id: 2,
-        name: "Aiga Liere",
-        event: "Panikas skrējiens",
+        age: "31",
         distance: "5km",
-        registrationDate: "21.04.2021",
-        number: 3001
+        email: "aiga_skinkis@inbox.lv",
+        event: "Nordeķis",
+        firstName: "Aiga",
+        gender: "Sieviete",
+        lastName: "Liere"
     },
     {
         id: 3,
-        name: "Ingus Bērziņš",
-        event: "Panikas skrējiens",
-        distance: "10km",
-        registrationDate: "07.02.2021",
-        number: 3561
+        age: "37",
+        distance: "5km",
+        email: "laura@inbox.lv",
+        event: "Nordeķis",
+        firstName: "Laura",
+        gender: "Sieviete",
+        lastName: "Berzina"
+    },
+    {
+        id: 4,
+        age: "21",
+        distance: "20km",
+        email: "pakavs@inbox.lv",
+        event: "Sarkandaugavas lasis",
+        firstName: "Uldis",
+        gender: "Vīrietis",
+        lastName: "Berzins"
     }
             
 ]
 
-export {events, participants};
+export {events, runners};

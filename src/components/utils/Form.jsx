@@ -1,14 +1,13 @@
 import Input from "./Input";
 import Select from "./Select";
 import { useState } from "react";
-import { Redirect, withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { addRunner } from "../../actions/eventAction";
 
 const genders = ["Vīrietis", "Sieviete"];
 
-function Form(props) {
-    const event = props.event;
-    const closeModal = props.closeModal;
-    console.log(props)
+function Form({ event, closeModal, history, addRunner, getRunners }) {
 
     const [submitForm, setSubmitForm] = useState({
         event: event.event,
@@ -31,9 +30,10 @@ function Form(props) {
 
     function registerRunner(e) {
         e.preventDefault();
-        console.log(submitForm, "Form komponentē");
         closeModal();
-        props.history.push("/success");
+
+        addRunner(submitForm);
+        history.push(`/success?event=${event.event}`);
     }
 
     return <form action="" method="post" onSubmit={registerRunner}>
@@ -50,4 +50,16 @@ function Form(props) {
     </form>
 }
 
-export default withRouter(Form);
+const mapStateToProps = (state) => {
+    return {
+
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addRunner: (submitedData) => { dispatch(addRunner(submitedData)) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Form));
