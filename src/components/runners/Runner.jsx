@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { events } from "../../eventsSeedData";
 
 
-function Runner({ runner, showTitle, events }) {
+function Runner({ runner, showTitle }) {
     const eventId = events.filter((event) => {
         let currentEvent = null;
         if (event.event === runner.event) {
@@ -22,10 +22,4 @@ function Runner({ runner, showTitle, events }) {
     </div>
 }
 
-const mapStateToProps = (state) => {
-    return {
-        events: state.events
-    }
-}
-
-export default connect(mapStateToProps)(Runner);
+export default Runner;

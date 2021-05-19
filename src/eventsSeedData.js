@@ -12,11 +12,12 @@ const events = [
         quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos 
         sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
         recusandae alias error harum maxime adipisci amet laborum.`,
-        location: "Āgenskalns, Rīga",
+        location: "Iļģuciems, Rīga",
         distance: ["10km", "5km"],
         date: "20.06.2021",
         image: "https://images.unsplash.com/photo-1613206334619-c6bb9c203ef0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=753&q=80",
-        registrationOpen: true
+        registrationOpen: true,
+        map: "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/24.0563,56.9663,12.93,0/300x200?access_token=pk.eyJ1IjoibWFydDhpbnMiLCJhIjoiY2tvbXl2Y2NvMDM5ejJwbXhzaTdubmRxciJ9.EQuuWigA6rPRkMB_ihNFEg"
     },
     {
         id: 2,
@@ -35,7 +36,8 @@ const events = [
         distance: ["10km", "5km"],
         date: "03.07.2021",
         image: "https://images.unsplash.com/photo-1570004119777-2b1786b0e5bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
-        registrationOpen: true
+        registrationOpen: true,
+        map: "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/24.0169,56.9572,13.13,0/300x200?access_token=pk.eyJ1IjoibWFydDhpbnMiLCJhIjoiY2tvbXl2Y2NvMDM5ejJwbXhzaTdubmRxciJ9.EQuuWigA6rPRkMB_ihNFEg"
     },
     {
         id: 3,
@@ -54,7 +56,8 @@ const events = [
         distance: ["20km", "10km", "5km"],
         date: "01.09.2021",
         image: "https://images.unsplash.com/photo-1588943680936-7754ec833045?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=891&q=80",
-        registrationOpen: false
+        registrationOpen: false,
+        map: "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/24.149,57.0104,12.49,0/300x200?access_token=pk.eyJ1IjoibWFydDhpbnMiLCJhIjoiY2tvbXl2Y2NvMDM5ejJwbXhzaTdubmRxciJ9.EQuuWigA6rPRkMB_ihNFEg"
     },
     {
         id: 4,
@@ -73,7 +76,8 @@ const events = [
         distance: ["15km", "10km", "5km"],
         date: "14.10.2021",
         image: "https://images.unsplash.com/photo-1598012268972-217e6036c419?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-        registrationOpen: false
+        registrationOpen: false,
+        map: "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/24.1433,56.9375,13.94,0/300x200?access_token=pk.eyJ1IjoibWFydDhpbnMiLCJhIjoiY2tvbXl2Y2NvMDM5ejJwbXhzaTdubmRxciJ9.EQuuWigA6rPRkMB_ihNFEg"
     },
     {
         id: 5,
@@ -92,7 +96,8 @@ const events = [
         distance: ["20km", "10km", "5km"],
         date: "07.12.2021",
         image: "https://images.unsplash.com/photo-1486218119243-13883505764c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80",
-        registrationOpen: true
+        registrationOpen: true,
+        map: "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/24.1242,56.9955,13.38,0/300x200?access_token=pk.eyJ1IjoibWFydDhpbnMiLCJhIjoiY2tvbXl2Y2NvMDM5ejJwbXhzaTdubmRxciJ9.EQuuWigA6rPRkMB_ihNFEg"
     }
 ]
 

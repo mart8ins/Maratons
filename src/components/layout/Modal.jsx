@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Form from "../utils/Form.jsx";
+import Form from "../utils/FormComponents/Form";
 
 function Modal({ event, closeModal }) {
   return ReactDOM.createPortal(

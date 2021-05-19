@@ -1,8 +1,8 @@
 import RegistrationStatus from "../utils/RegistrationStatus";
-import Modal from "./Modal";
+import Modal from "../layout/Modal";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { events } from "../../eventsSeedData";
 
 
 
@@ -12,7 +12,7 @@ function Event(props) {
 
     // current event id -> event data from array
     const { eventId } = props.match.params;
-    const event = props.events.filter((event) => {
+    const event = events.filter((event) => {
         return event.id == eventId;
     })
     const eventDetails = event[0];
@@ -53,15 +53,12 @@ function Event(props) {
                 <p>{eventDetails.description}</p>
                 <button><Link to={`/event/${eventId}/list?event=${eventDetails.event}`}>Dalībnieku saraksts</Link></button>
             </div>
-            <div className="map" style={{ backgroundImage: "url(/images/map.jpg)" }}></div>
+            {/* <div className="map" style={{ backgroundImage: "url(/images/map.jpg)" }}></div> */}
+            <img alt="mapbox location event Ilguciems" className="map" src={eventDetails.map} />
         </div>
     </div>
 }
 
-const mapStateToProps = (state) => {
-    return {
-        events: state.events
-    }
-}
 
-export default connect(mapStateToProps)(Event);
+
+export default Event;

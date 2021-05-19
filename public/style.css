@@ -199,11 +199,11 @@ body {
 }
 
 .map {
-    width: 20%;
-    height: 250px;
-    background-size: cover;
+    width: 28%;
+    height: 270px;
     padding: 5px;
     margin: 15px;
+    box-shadow: 0 3px 5px black;
 }
 
 .register_button {
