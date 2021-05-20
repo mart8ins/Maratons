@@ -2,6 +2,7 @@ import Runner from "../runners/Runner";
 import { useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { RunnersContext } from "../../context/RunnersContext";
+import "./style.css";
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);

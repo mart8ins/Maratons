@@ -1,12 +1,16 @@
 import RegistrationStatus from "../utils/RegistrationStatus";
 import Modal from "../layout/Modal";
-import { useState } from "react";
+import AuthModal from "../auth/AuthModal";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { events } from "../../eventsSeedData";
+import "./style.css";
+import { AuthContext } from "../../context/AuthContext";
 
 
 
 function Event(props) {
+    const { isLogged, setIsLogged } = useContext(AuthContext);
     // state for show modal for registration for event
     const [showModal, setShowModal] = useState(false);
 
@@ -46,7 +50,7 @@ function Event(props) {
                     <p>Pieejamās distances</p>
                     {eventDetails.distance.map(rednerKM)}
                 </div>
-                {eventDetails.registrationOpen ? <button onClick={openModal} className="register_button">Reģistrēties</button> : null}
+                {eventDetails.registrationOpen ? <button onClick={openModal} className={"register_button"}>Reģistrēties skrējienam</button> : null}
 
             </div>
             <div className="event_description">

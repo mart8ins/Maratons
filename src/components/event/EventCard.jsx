@@ -1,5 +1,6 @@
 import RegistrationStatus from "../utils/RegistrationStatus";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 function EventCard({ event }) {
     let id = "/event/" + event.id;

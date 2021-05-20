@@ -1,0 +1,183 @@
+.event_card_link:hover {
+    cursor: pointer;
+}
+
+/* event feed */
+.event_container {
+    width: 80%;
+    margin: 50px auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
+/* event card */
+.event_card {
+    width: 350px;
+    height: 550px;
+    margin: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.event_card h4 {
+    padding: 5px;
+    font-size: 1.5rem;
+    background-color: rgba(212, 86, 28, 0.8);
+    color: white;
+    margin: 0;
+}
+
+.event_card p {
+    width: initial;
+    color: white;
+    font-size: 1.2rem;
+    text-align: right;
+    padding: 5px 10px;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+.event_card:hover {
+    transform: scale(1.08);
+    position: relative;
+    z-index: 10;
+}
+
+.registration_status {
+    text-transform: uppercase;
+    position: relative;
+    bottom: 60px;
+    left: 5px;
+    width: 250px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px white;
+    background-color: white;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.open {
+    color: rgb(40, 219, 40);
+}
+
+.closed {
+    color: rgb(219, 40, 40);
+}
+
+.event_details_container {
+    width: 80%;
+    min-height: 600px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+}
+
+.event_details_image {
+    width: 100%;
+    margin: auto;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+
+.event_details_date {
+    color: white;
+    background-color: black;
+    display: inline-block;
+    padding: 10px;
+    font-family: 'Coda Caption', sans-serif;
+    font-size: 2rem;
+}
+
+.event_details_registration_closed {
+    position: absolute;
+    right: 190px;
+    top: 160px;
+}
+
+.event_details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event_description {
+    width: 50%;
+}
+
+.event_description p {
+    text-align: justify;
+    padding: 30px;
+}
+
+.event_location {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+}
+
+.distance_options {
+    margin-top: 50px;
+}
+
+.map {
+    width: 28%;
+    height: 270px;
+    padding: 5px;
+    margin: 15px;
+    box-shadow: 0 3px 5px black;
+}
+
+.register_button {
+    border: 1px solid rgba(212, 86, 28, 0.8);
+    padding: 5px;
+    margin-top: 10px;
+    background-color: rgba(212, 86, 28, 0.8);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    border-radius: 5px;
+    box-shadow: 2px 3px 6px black;
+}
+
+.register_button:hover {
+    cursor: pointer;
+    background-color: rgba(212, 86, 28, 1);
+}
+
+/* EVENT RUNNER LIST */
+.event_runner_list_container {
+    width: 40%;
+    min-height: initial;
+    margin: 20px auto;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.event_runner_list_container h3 {
+    padding: 10px;
+    font-size: 2rem;
+    color: orange;
+}
+
+.no_runners {
+    text-align: center;
+    font-size: 1.8rem;
+}
