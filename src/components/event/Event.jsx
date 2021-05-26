@@ -1,16 +1,16 @@
 import RegistrationStatus from "../utils/RegistrationStatus";
-import Modal from "../layout/Modal";
-import AuthModal from "../auth/AuthModal";
+import EventRegistrationModal from "./EventRegistrationModal";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { events } from "../../eventsSeedData";
-import "./style.css";
+import "./eventStyle.css";
 import { AuthContext } from "../../context/AuthContext";
 
 
 
 function Event(props) {
-    const { isLogged, setIsLogged } = useContext(AuthContext);
+    const { isLoged } = useContext(AuthContext);
+
     // state for show modal for registration for event
     const [showModal, setShowModal] = useState(false);
 
@@ -28,12 +28,12 @@ function Event(props) {
 
     // open/hide modal for registration
     function openModal() {
-        showModal ? setShowModal(false) : setShowModal(true)
-
+        showModal ? setShowModal(false) : setShowModal(true);
     }
 
     return <div className="event_details_container">
-        {showModal ? <Modal event={eventDetails} closeModal={openModal} /> : null}
+        {showModal ? <EventRegistrationModal event={eventDetails} closeModal={openModal} /> : null}
+        {/* {showAuthModal ? <AuthModal /> : null} */}
         <div className="event_details_image" style={{ backgroundImage: `url(${eventDetails.image})` }}>
             <div className="event_details_date">
                 {eventDetails.date}
@@ -50,8 +50,9 @@ function Event(props) {
                     <p>Pieejamās distances</p>
                     {eventDetails.distance.map(rednerKM)}
                 </div>
-                {eventDetails.registrationOpen ? <button onClick={openModal} className={"register_button"}>Reģistrēties skrējienam</button> : null}
-
+                {eventDetails.registrationOpen && isLoged ? <button onClick={openModal} className={"register_button"}>Reģistrēties skrējienam</button> : null}
+                {!isLoged && eventDetails.registrationOpen ? <p className="event_avaliable_closed_message">Lai reģistrētos skrējienam, lūgums autorizēties</p> : null}
+                {!eventDetails.registrationOpen ? <p className="event_avaliable_closed_message">Šim skrējienam reģistrācija vēl nav atvērta vai jau beigusies</p> : null}
             </div>
             <div className="event_description">
                 <p>{eventDetails.description}</p>
@@ -62,7 +63,5 @@ function Event(props) {
         </div>
     </div>
 }
-
-
 
 export default Event;

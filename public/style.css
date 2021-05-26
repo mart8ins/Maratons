@@ -4,6 +4,7 @@
 
 html {
     min-height: 100vh;
+    position: relative;
 }
 
 #root {
@@ -38,59 +39,7 @@ body {
 
 
 
-/* EVENT MODAL */
-.modal {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 10;
-}
 
-.modal_content_conatiner {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: relative;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal_close_X {
-    font-size: 3rem;
-    padding: 20px;
-    color: white;
-    border: 2px solid white;
-    position: absolute;
-    right: 0;
-    z-index: 11;
-}
-
-.modal_close_X:hover {
-    cursor: pointer;
-    background-color: white;
-    color: black;
-}
-
-.modal_form {
-    width: 70%;
-    height: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.registration_form_fields {
-    padding: 100px;
-    display: flex;
-    flex-direction: column;
-}
 
 fieldset {
     font-size: 2rem;

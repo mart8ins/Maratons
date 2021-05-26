@@ -1,4 +1,4 @@
-.modal {
+.auth_modal {
     width: 100%;
     height: 100%;
     top: 0px;
@@ -8,7 +8,7 @@
     z-index: 10;
 }
 
-.modal_content_conatiner {
+.auth_modal_content_conatiner {
     width: 100%;
     height: 100%;
     top: 0;
@@ -17,7 +17,7 @@
     color: white;
 }
 
-.modal_close_X {
+.auth_modal_close_X {
     font-size: 3rem;
     padding: 20px;
     color: white;
@@ -27,27 +27,45 @@
     z-index: 11;
 }
 
-.modal_close_X:hover {
+.auth_modal_close_X:hover {
     cursor: pointer;
     background-color: white;
     color: black;
 }
 
-.modal_form {
+.auth_modal_form {
+    width: 45%;
+    height: 80%;
+    margin: 150px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.auth_modal_form select {
+    width: 50%;
+}
+
+.registration_form_fields {
+    padding: 100px;
     display: flex;
     flex-direction: column;
 }
+
 
 .auth_btn {
     border: none;
     border-radius: 10px;
     background-color: rgb(128, 83, 1);
-    color: grey;
-    margin-top: 10px;
+    color: white;
+    margin-top: 20px;
     padding: 5px 10px;
     cursor: pointer;
     box-shadow: 0 3px 3px white;
     transition: 0.6s;
+    font-size: 1.2rem;
 }
 
 .auth_btn:hover {
@@ -58,7 +76,7 @@
 .change_Auth_Option_Btn {
     border: none;
     box-shadow: 0px 2px 3px rgb(128, 83, 1);
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding: 5px 20px;
     margin-top: 50px;
     border-radius: 30px;
@@ -71,4 +89,39 @@
 .change_Auth_Option_Btn:hover {
     cursor: pointer;
     box-shadow: 0px 2px 20px orange;
+}
+
+.unsuccessfulAuthMsg {
+    text-align: center;
+    margin-top: 10px;
+    color: red;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 0.7rem;
+}
+
+@media (min-width: 768px) {
+    .auth_modal_form {
+        font-size: 1.8rem;
+        width: 30%;
+    }
+
+    .auth_modal_form select {
+        font-size: 1.3rem;
+        width: 30%;
+    }
+
+    .auth_btn {
+        color: grey;
+        font-size: 2rem;
+    }
+
+    .change_Auth_Option_Btn {
+        font-size: 1rem;
+    }
+
+    .unsuccessfulAuthMsg {
+        font-size: 1rem;
+    }
 }

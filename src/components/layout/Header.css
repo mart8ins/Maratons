@@ -10,39 +10,15 @@
 .header_right p {
     padding: 10px;
     margin: 0;
-    color: white;
 }
 
 .header_left p {
     font-family: 'RocknRoll One', sans-serif;
-    font-size: 1rem;
-    text-align: center;
+    font-size: 1.6rem;
+
 }
 
 .header_left a {
-    color: white;
-}
-
-
-.header_right nav {
-    display: flex;
-    flex-direction: column;
-}
-
-.header_right a {
-    color: orange;
-    border: 1px solid orange;
-    display: inline-block;
-    margin: 5px;
-    font-size: 0.7rem;
-    text-align: center;
-    padding: 1px 5px;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-.active {
     color: white;
 }
 
@@ -57,14 +33,5 @@
 
     .header_right {
         padding-right: 50px;
-    }
-
-    .header_right nav {
-        flex-direction: row;
-    }
-
-    .header_right a {
-        font-size: 1rem;
-        padding: 3px 8px;
     }
 }

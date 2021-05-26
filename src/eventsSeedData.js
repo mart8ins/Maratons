@@ -18,7 +18,26 @@ const events = [
         image: "https://images.unsplash.com/photo-1613206334619-c6bb9c203ef0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=753&q=80",
         registrationOpen: true,
         map: "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/24.0563,56.9663,12.93,0/300x200?access_token=pk.eyJ1IjoibWFydDhpbnMiLCJhIjoiY2tvbXl2Y2NvMDM5ejJwbXhzaTdubmRxciJ9.EQuuWigA6rPRkMB_ihNFEg",
-        registredRunners: []
+        registredRunners: [
+            {
+                firstName: "Martins",
+                lastName: "Skinkis",
+                gender: "Vīrietis",
+                age: "21",
+                phone: "22112211",
+                email: "martins_skinkis@inbox.lv",
+                distance: "10km"
+            },
+            {
+                firstName: "Aiga",
+                lastName: "Liere",
+                gender: "Sieviete",
+                age: "23",
+                phone: "33443344",
+                email: "aiga@inbox.lv",
+                distance: "5km"
+            }
+        ]
     },
     {
         id: 2,
@@ -81,7 +100,17 @@ const events = [
         image: "https://images.unsplash.com/photo-1598012268972-217e6036c419?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
         registrationOpen: false,
         map: "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/24.1433,56.9375,13.94,0/300x200?access_token=pk.eyJ1IjoibWFydDhpbnMiLCJhIjoiY2tvbXl2Y2NvMDM5ejJwbXhzaTdubmRxciJ9.EQuuWigA6rPRkMB_ihNFEg",
-        registredRunners: []
+        registredRunners: [
+            {
+                firstName: "Aiga",
+                lastName: "Liere",
+                gender: "Sieviete",
+                age: "23",
+                phone: "33443344",
+                email: "aiga@inbox.lv",
+                distance: "20km"
+            }
+        ]
     },
     {
         id: 5,
@@ -102,65 +131,36 @@ const events = [
         image: "https://images.unsplash.com/photo-1486218119243-13883505764c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80",
         registrationOpen: true,
         map: "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/24.1242,56.9955,13.38,0/300x200?access_token=pk.eyJ1IjoibWFydDhpbnMiLCJhIjoiY2tvbXl2Y2NvMDM5ejJwbXhzaTdubmRxciJ9.EQuuWigA6rPRkMB_ihNFEg",
-        registredRunners: []
+        registredRunners: [
+            {
+                firstName: "Aiga",
+                lastName: "Liere",
+                gender: "Sieviete",
+                age: "23",
+                phone: "33443344",
+                email: "aiga@inbox.lv",
+                distance: "5km"
+            }
+        ]
     }
 ]
 
-const runners = [
-    {
-        id: 1,
-        age: "33",
-        distance: "10km",
-        email: "martins_skinkis@inbox.lv",
-        event: "Imantas priedes",
-        firstName: "Mārtiņš",
-        gender: "Vīrietis",
-        lastName: "Šķiņķis"
-    },
-    {
-        id: 2,
-        age: "31",
-        distance: "5km",
-        email: "aiga_skinkis@inbox.lv",
-        event: "Nordeķis",
-        firstName: "Aiga",
-        gender: "Sieviete",
-        lastName: "Liere"
-    },
-    {
-        id: 3,
-        age: "37",
-        distance: "5km",
-        email: "laura@inbox.lv",
-        event: "Nordeķis",
-        firstName: "Laura",
-        gender: "Sieviete",
-        lastName: "Berzina"
-    },
-    {
-        id: 4,
-        age: "21",
-        distance: "20km",
-        email: "pakavs@inbox.lv",
-        event: "Sarkandaugavas lasis",
-        firstName: "Uldis",
-        gender: "Vīrietis",
-        lastName: "Berzins"
-    }
-            
-]
+
 
 const users = [
     {
         id: 1,
-        firstName: "Uldis",
-        lastName: "Berzins",
+        firstName: "Martins",
+        lastName: "Skinkis",
         gender: "Vīrietis",
         age: "21",
         phone: "22112211",
-        email: "pakavs@inbox.lv",
-        password: "pakavs",
-        events: []
+        email: "martins_skinkis@inbox.lv",
+        password: "martins",
+        events: [{
+            event: "Nordeķis",
+            distance: "10km"
+        }]
     },
     {
         id: 2,
@@ -170,42 +170,16 @@ const users = [
         age: "23",
         phone: "33443344",
         email: "aiga@inbox.lv",
-        password: "pakavs",
-        events: []
-    },
-    {
-        id: 3,
-        firstName: "Toms",
-        lastName: "Igaunis",
-        gender: "Vīrietis",
-        age: "44",
-        phone: "77887788",
-        email: "toms@inbox.lv",
-        password: "pakavs",
-        events: []
-    },
-    {
-        id: 4,
-        firstName: "Ingus",
-        lastName: "Mačs",
-        gender: "Vīrietis",
-        age: "49",
-        phone: "99998888",
-        email: "ingus@inbox.lv",
-        password: "pakavs",
-        events: []
-    },
-    {
-        id: 5,
-        firstName: "Liza",
-        lastName: "Simsone",
-        gender: "Sieviete",
-        age: "18",
-        phone: "11111111",
-        email: "liza@inbox.lv",
-        password: "pakavs",
-        events: []
+        password: "aiga",
+        events: [{
+            event: "Panikas skrējiens",
+            distance: "5km"
+        },
+        {
+            event: "Sarkandaugavas lasis",
+            distance: "20km"
+        }]
     }
 ]
 
-export {events, runners, users};
+export {events, users};

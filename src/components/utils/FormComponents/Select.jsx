@@ -1,7 +1,7 @@
 import Option from "./Option";
 
-function Select({ fields, label, isRequired, name, onChange }) {
-    return <select onChange={onChange} name={name} required={isRequired}>
+function Select({ fields, label, required, name, onChange }) {
+    return <select onChange={onChange} name={name} required={required}>
         <option label={label}></option>
         {fields.map((field, index) => {
             return <Option key={index} field={field} />

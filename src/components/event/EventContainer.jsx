@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import EventCard from "./EventCard";
 import { EventContext } from "../../context/EventContext";
-import "./style.css";
+import "./eventStyle.css";
 
 function renderEvents(event) {
     return <EventCard key={event.id} event={event} />

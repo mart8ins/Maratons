@@ -1,16 +1,16 @@
-import Runner from "./Runner";
-import { useContext } from "react";
-import { RunnersContext } from "../../context/RunnersContext";
+// import Runner from "./Runner";
+// import { useContext } from "react";
+// import { AuthContext } from "../../context/AuthContext";
 
-function RunnersList() {
-    const { allRunners } = useContext(RunnersContext);
-    return <div className="runner_list_container">
-        {allRunners.map((runner, index) => {
-            return <Runner key={index} runner={runner} showTitle={true} />
-        })}
+// function RunnersList() {
+//     const { allUsers } = useContext(AuthContext);
+//     return <div className="runner_list_container">
+//         {allUsers.map((runner, index) => {
+//             return <Runner key={index} runner={runner} showTitle={true} />
+//         })}
 
-    </div>
-}
+//     </div>
+// }
 
 
-export default RunnersList;
+// export default RunnersList;

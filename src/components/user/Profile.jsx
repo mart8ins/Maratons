@@ -1,4 +1,4 @@
-function Profile() {
+function Profile(props) {
     return <div className="center" style={{ color: "white" }}>Profile</div>
 }
 

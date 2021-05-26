@@ -134,6 +134,15 @@
     margin-top: 50px;
 }
 
+.event_avaliable_closed_message {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: rgb(32, 29, 29);
+    padding: 5px;
+    border-radius: 10px;
+}
+
 .map {
     width: 28%;
     height: 270px;
@@ -141,6 +150,7 @@
     margin: 15px;
     box-shadow: 0 3px 5px black;
 }
+
 
 .register_button {
     border: 1px solid rgba(212, 86, 28, 0.8);
@@ -181,3 +191,47 @@
     text-align: center;
     font-size: 1.8rem;
 }
+
+/* EVENT registration MODAL */
+.event_modal {
+    width: 400px;
+    height: 300px;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(39, 31, 31, 0.822);
+    position: fixed;
+    z-index: 10;
+}
+
+.event_modal_content_conatiner {
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event_modal_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.event_modal_close_X {
+    font-size: 2rem;
+    padding: 5px;
+    color: white;
+    background-color: black;
+    position: absolute;
+    right: 0;
+    z-index: 11;
+}
+
+.event_modal_close_X:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+@media (min-width: 768px) {}
