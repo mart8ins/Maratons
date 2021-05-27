@@ -24,6 +24,10 @@ nav a:hover {
     color: white;
 }
 
+.loggedUserName {
+    color: rgb(240, 119, 119);
+}
+
 @media (min-width: 768px) {
     nav {
         flex-direction: row;

@@ -170,6 +170,17 @@
     background-color: rgba(212, 86, 28, 1);
 }
 
+.register_button_disabled {
+    border: 1px solid rgba(212, 86, 28, 0.8);
+    padding: 10px;
+    margin-top: 10px;
+    background-color: rgba(212, 86, 28, 0.8);
+    color: white;
+    font-size: 0.9rem;
+    letter-spacing: 1.3px;
+    border-radius: 5px;
+}
+
 /* EVENT RUNNER LIST */
 .event_runner_list_container {
     width: 40%;

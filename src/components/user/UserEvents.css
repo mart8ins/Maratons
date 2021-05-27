@@ -1,0 +1,57 @@
+.user_events_container {
+    color: black;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: whitesmoke;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+.user_events {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user_events a {
+    color: black;
+    display: block;
+    background-color: orange;
+    font-weight: bold;
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: 0 4px 4px black;
+}
+
+.user_events a:hover {
+    background-color: rgba(245, 183, 67, 0.842);
+    text-align: center;
+}
+
+.no_user_events {
+    text-align: center;
+}
+
+.no_user_events_to_events_link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+}
+
+
+
+@media (min-width: 786px) {
+    .user_events_container {
+        width: 90%;
+        margin-left: 20px;
+    }
+
+    .user_events a:hover {
+        color: black;
+    }
+}

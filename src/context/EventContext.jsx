@@ -1,11 +1,12 @@
 import { createContext, useState } from "react";
-import { events } from "../eventsSeedData";
+
+
 
 export const EventContext = createContext();
 
 const EventContextProvider = ({ children }) => {
 
-    const [allEvents, setAllEvents] = useState(events);
+    const [allEvents, setAllEvents] = useState([]);
 
     return <EventContext.Provider value={{ allEvents, setAllEvents }}>
         {children}

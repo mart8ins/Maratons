@@ -12,6 +12,7 @@ import EventContextProvider from "./context/EventContext";
 
 
 function App() {
+
     return (
         <BrowserRouter>
             <EventContextProvider>

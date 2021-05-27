@@ -14,7 +14,6 @@ function EventRunnerList() {
 
     const filteredEvent = allEvents.filter(event => event.event == query);
     const registredRunners = filteredEvent[0].registredRunners;
-    console.log(registredRunners)
 
 
     return <div className="event_runner_list_container">

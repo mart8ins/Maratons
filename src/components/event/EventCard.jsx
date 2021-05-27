@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./eventStyle.css";
 
 function EventCard({ event }) {
-    let id = "/event/" + event.id;
+    let id = "/event/" + event._id;
     return (
         <div>
             <Link to={id}>

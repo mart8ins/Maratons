@@ -7,22 +7,21 @@ import { AuthContext } from "../../context/AuthContext";
 import "./authModal.css";
 import { Login } from "../auth/Login";
 import { Register } from "../auth/Register";
+import axios from "axios";
 
 const genders = ["Vīrietis", "Sieviete"];
 
 const AuthModal = ({ closeAuthModal, logingOption, changeAuthOptionInOpenModal }) => {
     const history = useHistory();
 
-
     // APP context for if users is logged in
-    const { isLoged, setIsLoged } = useContext(AuthContext);
+    const { isLoged, setIsLoged, loggedUser, setLoggedUser } = useContext(AuthContext);
 
     // login message
     const [authMessage, setAuthMessage] = useState(undefined);
 
     // state for auth data
     const [authInputData, setAuthInputData] = useState({});
-
     // handle auth forms input data
     const changeHandler = (e) => {
         setAuthInputData({
@@ -34,13 +33,16 @@ const AuthModal = ({ closeAuthModal, logingOption, changeAuthOptionInOpenModal }
     // handle users submited data in auth
     const submitHandler = (e) => {
         e.preventDefault();
-
         // handle succesful login or register
         // returns boolean and message
+
+
         let loginSuccessful = logingOption ? Login(authInputData) : Register(authInputData);
-        let { authSuccessful, authMessage } = loginSuccessful;
+        let { authSuccessful, authMessage, loggedUser } = loginSuccessful;
+
         if (authSuccessful) {
             setIsLoged(true);
+            setLoggedUser(loggedUser);
             history.push("/all-events");
             closeAuthModal();
         } else {
@@ -55,7 +57,7 @@ const AuthModal = ({ closeAuthModal, logingOption, changeAuthOptionInOpenModal }
                 X
             </div>
             <div className="auth_modal_content_conatiner">
-                <form>
+                <form onSubmit={submitHandler}>
                     <fieldset className="auth_modal_form">
                         <legend>{logingOption ? "Pievienoties" : "Reģistrēties"}</legend>
                         {!logingOption ?
@@ -71,21 +73,22 @@ const AuthModal = ({ closeAuthModal, logingOption, changeAuthOptionInOpenModal }
                         <Input onChange={changeHandler} type="password" name="password" placeholder="parole" id="password" isRequired={true} />
 
                         <p className="unsuccessfulAuthMsg">{authMessage}</p>
-                        <button onClick={submitHandler} className="auth_btn">Skriet!!!</button>
+                        <button className="auth_btn">Skriet!!!</button>
 
 
-                        {!logingOption ? <button className="change_Auth_Option_Btn" onClick={() => {
+                        {!logingOption ? <input type="button" value="Tomēr jau esi reģistrēts?..." className="change_Auth_Option_Btn" onClick={() => {
                             changeAuthOptionInOpenModal(logingOption);
                             setAuthMessage(undefined);
-                        }}>Tomēr jau esi reģistrēts?...</button>
+                        }} />
                             :
-                            <button className="change_Auth_Option_Btn" onClick={() => {
+                            <input type="button" value="Neesi vēl reģistrējies?..." className="change_Auth_Option_Btn" onClick={() => {
                                 changeAuthOptionInOpenModal(logingOption);
                                 setAuthMessage(undefined);
-                            }}>Neesi vēl reģistrējies?...</button>
+                            }} />
                         }
                     </fieldset>
                 </form>
+
 
             </div>
         </div>

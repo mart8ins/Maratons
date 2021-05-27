@@ -1,3 +1,4 @@
+
 const events = [
     {
         id: 1,
@@ -181,5 +182,6 @@ const users = [
         }]
     }
 ]
+
 
 export {events, users};

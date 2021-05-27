@@ -7,7 +7,7 @@ const AuthContextProvider = ({ children }) => {
     const [loggedUser, setLoggedUser] = useState({});
 
     return (
-        <AuthContext.Provider value={{ isLoged, setIsLoged }}>
+        <AuthContext.Provider value={{ isLoged, setIsLoged, loggedUser, setLoggedUser }}>
             {children}
         </AuthContext.Provider>
     )
