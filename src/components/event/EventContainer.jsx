@@ -17,14 +17,14 @@ function EventContainer() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get("http://localhost:4001/events");
+                const response = await axios.get("http://localhost:4001/api/events");
                 setAllEvents(response.data);
             } catch (err) {
                 console.log(err, "Error fetching Event data");
             }
         }
         fetchData();
-    }, []);
+    });
 
     return (
         <div className="event_container">

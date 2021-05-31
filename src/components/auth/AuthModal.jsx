@@ -6,8 +6,7 @@ import Select from "../utils/FormComponents/Select";
 import { AuthContext } from "../../context/AuthContext";
 import "./authModal.css";
 import { Login } from "../auth/Login";
-import { Register } from "../auth/Register";
-import axios from "axios";
+import { Signup } from "../auth/Signup";
 
 const genders = ["Vīrietis", "Sieviete"];
 
@@ -15,7 +14,7 @@ const AuthModal = ({ closeAuthModal, logingOption, changeAuthOptionInOpenModal }
     const history = useHistory();
 
     // APP context for if users is logged in
-    const { isLoged, setIsLoged, loggedUser, setLoggedUser } = useContext(AuthContext);
+    const { setIsLoged, setLoggedUser } = useContext(AuthContext);
 
     // login message
     const [authMessage, setAuthMessage] = useState(undefined);
@@ -35,9 +34,7 @@ const AuthModal = ({ closeAuthModal, logingOption, changeAuthOptionInOpenModal }
         e.preventDefault();
         // handle succesful login or register
         // returns boolean and message
-
-
-        let loginSuccessful = logingOption ? Login(authInputData) : Register(authInputData);
+        let loginSuccessful = logingOption ? Login(authInputData) : Signup(authInputData);
         let { authSuccessful, authMessage, loggedUser } = loginSuccessful;
 
         if (authSuccessful) {
