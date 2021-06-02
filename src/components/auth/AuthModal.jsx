@@ -14,7 +14,7 @@ const AuthModal = ({ closeAuthModal, logingOption, changeAuthOptionInOpenModal }
     const history = useHistory();
 
     // APP context for if users is logged in
-    const { setIsLoged, setLoggedUser } = useContext(AuthContext);
+    const { setIsLoged } = useContext(AuthContext);
 
     // login message
     const [authMessage, setAuthMessage] = useState(undefined);
@@ -30,20 +30,20 @@ const AuthModal = ({ closeAuthModal, logingOption, changeAuthOptionInOpenModal }
     };
 
     // handle users submited data in auth
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
         // handle succesful login or register
         // returns boolean and message
-        let loginSuccessful = logingOption ? Login(authInputData) : Signup(authInputData);
-        let { authSuccessful, authMessage, loggedUser } = loginSuccessful;
+        let loginSuccessful = logingOption ? await Login(authInputData) : await Signup(authInputData);
+        let { authSuccessful, authMessage } = loginSuccessful;
 
         if (authSuccessful) {
-            setIsLoged(true);
-            setLoggedUser(loggedUser);
+            setIsLoged(authSuccessful);
+            setAuthMessage(authMessage);
             history.push("/all-events");
             closeAuthModal();
         } else {
-            setAuthMessage(authMessage);
+            setAuthMessage("Authentication unsuccessful!");
         }
     }
 

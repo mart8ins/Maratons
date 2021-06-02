@@ -12,7 +12,7 @@ const activeLinkStyle = {
 
 
 const Navigation = () => {
-    const { isLoged, setIsLoged, loggedUser, setLoggedUser } = useContext(AuthContext);
+    const { isLoged, setIsLoged } = useContext(AuthContext);
 
     /* **************************************************
     ->>>> HANDLING AUTH MODAL AND OPTIONS TO LOGIN OR REGISTER
@@ -39,7 +39,6 @@ const Navigation = () => {
 
     const logout = () => {
         setIsLoged(false);
-        setLoggedUser({});
     }
 
 
@@ -52,7 +51,7 @@ const Navigation = () => {
             />}
 
             <NavLink to="/all-events" activeStyle={activeLinkStyle}>Skrējieni</NavLink>
-            {isLoged && <NavLink activeStyle={activeLinkStyle} to="/profile"><span className="loggedUserName">{loggedUser.firstName + " " + loggedUser.lastName + " "}</span> Profils</NavLink>}
+            {isLoged && <NavLink activeStyle={activeLinkStyle} to="/profile"><span className="loggedUserName">Lietotāja profils</span> Profils</NavLink>}
 
 
             {!isLoged && <React.Fragment>

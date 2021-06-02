@@ -27,9 +27,21 @@ function Event(props) {
     /* ************************************************* */
 
     // context for logged user
-    const { isLoged, loggedUser } = useContext(AuthContext);
+    const { isLoged } = useContext(AuthContext);
+
+
     // to check if user is registred to current event
-    const loggedUserEvents = loggedUser.events || [];
+    /* ************************************
+    ****************************************
+    loggedUserEvents BŪS LIETOTĀJA EVENTI
+    *********************************************
+    *********************************************
+    */
+    const loggedUserEvents = [];
+    /* ********************************************
+    ********************************************
+    ************************************************* */
+
 
     // context for all events in db and local states for filtered event, filtered events distance array
     const { allEvents } = useContext(EventContext);

@@ -1,23 +1,13 @@
-import {users} from "../../eventsSeedData";
-/* HANDLE BACKEND LOGIC */
+import axios from "axios";
 
-export const Login = (credentials) => {
-    let authSuccessful = false;
-    let authMessage = "Logging unsuccessful! Please check your credentials!";
-    let loggedUser = {};
-
-    users.forEach((user) => {
-        if(user.email === credentials.email) {
-            for(let u in user) {
-                if(u !== "password") {
-                    loggedUser[u] = user[u];
-                }
-            }
-
-            authSuccessful = true;
-            authMessage = "Logging successful!";
-        } 
-    })
-
-    return {authSuccessful, authMessage, loggedUser};
+export const Login = async (credentials) => {
+        // post signup credentials to server
+        const response = await axios.post("http://localhost:4001/api/users/login", credentials);
+        console.log(response, "resssss")
+        // return boolean for succesful signup, message, and also data for new user except password
+        const {message, success} = response.data;
+        return {
+            authSuccessful: success,
+            authMessage: message
+        }
 }

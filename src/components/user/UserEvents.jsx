@@ -6,8 +6,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 
 function UserEvents() {
-    const { loggedUser } = useContext(AuthContext);
-    const { events } = loggedUser;
+    const events = [];
 
     const renderEvents = () => {
         return events?.map((ev, i) => {
