@@ -98,13 +98,9 @@ function Event(props) {
             <div className="event_location">
                 <h2>{filteredEvent.event}</h2>
                 <h3>{filteredEvent.location}</h3>
-                <div className="distance_options">
-                    <p>Pieejamās distances</p>
-                    {distance.map(rednerKM)}
-                </div>
 
                 {filteredEvent.registrationOpen && token && !closeRegistrationForUser && !userAlreadyRegistred ? <button onClick={openModal} className="register_button">Reģistrēties skrējienam</button> : null}
-                {closeRegistrationForUser || userAlreadyRegistred ? <button className="register_button_disabled">Skrējienam esat reģistrēts</button> : null}
+                {closeRegistrationForUser || userAlreadyRegistred ? <button className="register_button_disabled">Reģistrēts</button> : null}
 
 
                 {!token && filteredEvent.registrationOpen ? <p className="event_avaliable_closed_message">Lai reģistrētos skrējienam, lūgums autorizēties</p> : null}

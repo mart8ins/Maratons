@@ -37,7 +37,7 @@ function EventRegistrationModal({ event, closeModal, setCloseRegistrationForUser
         <div className="event_modal_form">
 
           <Select onChange={handleChange} fields={event.distance} label={"Pieejamās distances"} name="Distance" required />
-          {distance ? <input type="submit" onClick={handleEventRegistration} value="Reģistrēties" /> : null}
+          {distance ? <input className="event_registration_btn_modal" type="submit" onClick={handleEventRegistration} value="Reģistrēties" /> : null}
         </div>
       </div>
     </div>,
