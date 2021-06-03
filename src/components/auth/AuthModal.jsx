@@ -14,7 +14,7 @@ const AuthModal = ({ closeAuthModal, logingOption, changeAuthOptionInOpenModal }
     const history = useHistory();
 
     // APP context for if users is logged in
-    const { setIsLoged } = useContext(AuthContext);
+    const { setToken } = useContext(AuthContext);
 
     // login message
     const [authMessage, setAuthMessage] = useState(undefined);
@@ -35,10 +35,12 @@ const AuthModal = ({ closeAuthModal, logingOption, changeAuthOptionInOpenModal }
         // handle succesful login or register
         // returns boolean and message
         let loginSuccessful = logingOption ? await Login(authInputData) : await Signup(authInputData);
-        let { authSuccessful, authMessage } = loginSuccessful;
+        let { authSuccessful, authMessage, token } = loginSuccessful;
 
         if (authSuccessful) {
-            setIsLoged(authSuccessful);
+            setToken(token);
+            window.localStorage.setItem("token", JSON.stringify(token));
+
             setAuthMessage(authMessage);
             history.push("/all-events");
             closeAuthModal();

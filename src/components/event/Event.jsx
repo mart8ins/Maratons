@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { EventContext } from "../../context/EventContext";
 import "./eventStyle.css";
+import axios from "axios";
+
 
 const storage = window.localStorage;
 
@@ -12,7 +14,6 @@ const storage = window.localStorage;
 function rednerKM(dist, index) {
     return <h3 key={index}>{dist}</h3>
 }
-
 
 function Event(props) {
     /* ************************************************* */
@@ -26,30 +27,20 @@ function Event(props) {
     /* ************************************************* */
     /* ************************************************* */
 
-    // context for logged user
-    const { isLoged } = useContext(AuthContext);
+    // state for loged users event registrations array
+    const [userEvents, setUserEvents] = useState([]);
 
+    // context for logged user, token is user id in db
+    const { token } = useContext(AuthContext);
 
-    // to check if user is registred to current event
-    /* ************************************
-    ****************************************
-    loggedUserEvents BŪS LIETOTĀJA EVENTI
-    *********************************************
-    *********************************************
-    */
-    const loggedUserEvents = [];
-    /* ********************************************
-    ********************************************
-    ************************************************* */
-
+    // current events id
+    const { eventId } = props.match.params;
 
     // context for all events in db and local states for filtered event, filtered events distance array
     const { allEvents } = useContext(EventContext);
-    const [filteredEvent, setfilteredEvent] = useState({});
+    const [filteredEvent, setfilteredEvent] = useState({}); // current event in browser
     const [distance, setDistance] = useState([]);
 
-    // current event id
-    const { eventId } = props.match.params;
 
     /* ************************************************* */
     /* ************************************************* */
@@ -64,27 +55,36 @@ function Event(props) {
         const filteredEventFromLS = JSON.parse(storage.getItem("runningEvent"));
         setfilteredEvent(filteredEventFromLS);
         setDistance(filteredEventFromLS.distance);
-        storage.clear();
-    }, [])
-    /* ************************************************* */
-    /* ************************************************* */
-    // return true if current logged user ir already registred to current event
-    const userIsRegistredToEvent = (arr, ev) => {
-        for (let e of arr) {
-            if (e.event === ev) {
-                return true;
-            } else {
-                return false;
-            }
+        if (token) {
+            (async function getUserEvents() {
+                const response = await axios.get(`http://localhost:4001/api/users/${token}`);
+                setUserEvents(response.data.user.events)
+            })();
         }
+    }, [])
+
+
+    /* ************************************************* */
+    /* ************************************************* */
+    // state to triger changes after user registers to event
+    const [closeRegistrationForUser, setCloseRegistrationForUser] = useState(false);
+    // return object if current logged user ir already registred to current event
+    const userIsRegistredToEvent = (arr, ev) => {
+        console.log(arr, ev, "ieksš funkcijas")
+        let isRegistred = arr.find((event) => {
+            return event.event === ev;
+        });
+        return isRegistred;
     }
-    const userAlreadyRegistred = userIsRegistredToEvent(loggedUserEvents, filteredEvent.event);
+    // userAlreadyRegistred also used as boolean to follow if user ir registred to event, keep data after refresh
+    const userAlreadyRegistred = userIsRegistredToEvent(userEvents, eventId);
     /* ************************************************* */
     /* ************************************************* */
+
 
 
     return <div className="event_details_container">
-        {showModal ? <EventRegistrationModal event={filteredEvent} closeModal={openModal} /> : null}
+        {showModal ? <EventRegistrationModal event={filteredEvent} setCloseRegistrationForUser={setCloseRegistrationForUser} closeModal={openModal} /> : null}
         {/* {showAuthModal ? <AuthModal /> : null} */}
         <div className="event_details_image" style={{ backgroundImage: `url(${filteredEvent.image})` }}>
             <div className="event_details_date">
@@ -103,11 +103,11 @@ function Event(props) {
                     {distance.map(rednerKM)}
                 </div>
 
-                {filteredEvent.registrationOpen && isLoged && !userAlreadyRegistred ? <button onClick={openModal} className="register_button">Reģistrēties skrējienam</button> : null}
-                {userAlreadyRegistred ? <button className="register_button_disabled">Skrējienam jau esiet reģistrēts</button> : null}
+                {filteredEvent.registrationOpen && token && !closeRegistrationForUser && !userAlreadyRegistred ? <button onClick={openModal} className="register_button">Reģistrēties skrējienam</button> : null}
+                {closeRegistrationForUser || userAlreadyRegistred ? <button className="register_button_disabled">Skrējienam esat reģistrēts</button> : null}
 
 
-                {!isLoged && filteredEvent.registrationOpen ? <p className="event_avaliable_closed_message">Lai reģistrētos skrējienam, lūgums autorizēties</p> : null}
+                {!token && filteredEvent.registrationOpen ? <p className="event_avaliable_closed_message">Lai reģistrētos skrējienam, lūgums autorizēties</p> : null}
                 {!filteredEvent.registrationOpen ? <p className="event_avaliable_closed_message">Šim skrējienam reģistrācija vēl nav atvērta vai jau beigusies</p> : null}
             </div>
             <div className="event_description">

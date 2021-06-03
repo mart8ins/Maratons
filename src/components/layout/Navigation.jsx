@@ -12,8 +12,8 @@ const activeLinkStyle = {
 
 
 const Navigation = () => {
-    const { isLoged, setIsLoged } = useContext(AuthContext);
-
+    const { token, setToken } = useContext(AuthContext);
+    // const token = JSON.parse(window.localStorage.getItem("token"));
     /* **************************************************
     ->>>> HANDLING AUTH MODAL AND OPTIONS TO LOGIN OR REGISTER
     ****************************************************** */
@@ -38,7 +38,8 @@ const Navigation = () => {
    ****************************************************** */
 
     const logout = () => {
-        setIsLoged(false);
+        setToken(null);
+        window.localStorage.removeItem("token");
     }
 
 
@@ -51,10 +52,10 @@ const Navigation = () => {
             />}
 
             <NavLink to="/all-events" activeStyle={activeLinkStyle}>Skrējieni</NavLink>
-            {isLoged && <NavLink activeStyle={activeLinkStyle} to="/profile"><span className="loggedUserName">Lietotāja profils</span> Profils</NavLink>}
+            {token && <NavLink activeStyle={activeLinkStyle} to="/profile"><span className="loggedUserName">Lietotāja profils</span> Profils</NavLink>}
 
 
-            {!isLoged && <React.Fragment>
+            {!token ? <React.Fragment>
                 <Link to="/"
                     onClick={openAuthModalForRegister}
                     className="authbtn">Reģistrēties
@@ -63,10 +64,10 @@ const Navigation = () => {
                     onClick={openAuthModalForLogin}
                     className="authbtn">Pievienoties
                             </Link>
-            </React.Fragment>}
+            </React.Fragment> : null}
 
 
-            {isLoged && <Link to="/" onClick={logout}>Iziet</Link>}
+            {token ? <Link to="/" onClick={logout}>Iziet</Link> : null}
 
         </nav>
     </div>
