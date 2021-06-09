@@ -21,7 +21,7 @@ function App() {
                         <Header />
                         <Switch>
                             <Route path="/" exact component={Home}></Route>
-                            <Route path="/profile" exact component={Profile}></Route>
+                            <Route path="/profile/:userId" exact component={Profile}></Route>
                             <Route path="/all-events" exact component={EventContainer}></Route>
                             <Route path="/event/:eventId" exact component={Event}></Route>
                             <Route path="/event/:eventId/list" component={EventRunnerList}></Route>

@@ -52,7 +52,7 @@ const Navigation = () => {
             />}
 
             <NavLink to="/all-events" activeStyle={activeLinkStyle}>Skrējieni</NavLink>
-            {token && <NavLink activeStyle={activeLinkStyle} to="/profile"><span className="loggedUserName">Lietotāja profils</span> Profils</NavLink>}
+            {token && <NavLink activeStyle={activeLinkStyle} to={`/profile/${token}`}><span className="loggedUserName">Lietotāja</span> Profils</NavLink>}
 
 
             {!token ? <React.Fragment>

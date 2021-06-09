@@ -24,11 +24,11 @@ function EventContainer() {
             }
         }
         fetchData();
-    });
+    }, []);
 
     return (
         <div className="event_container">
-            {!allEvents.length ? "Loading" : allEvents.map(renderEvents)}
+            {!allEvents.length ? <div className="loading center">Loading...</div> : allEvents.map(renderEvents)}
         </div>
     )
 }

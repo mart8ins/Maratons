@@ -7,13 +7,7 @@ import { EventContext } from "../../context/EventContext";
 import "./eventStyle.css";
 import axios from "axios";
 
-
 const storage = window.localStorage;
-
-// render event km distance
-function rednerKM(dist, index) {
-    return <h3 key={index}>{dist}</h3>
-}
 
 function Event(props) {
     /* ************************************************* */
@@ -70,9 +64,8 @@ function Event(props) {
     const [closeRegistrationForUser, setCloseRegistrationForUser] = useState(false);
     // return object if current logged user ir already registred to current event
     const userIsRegistredToEvent = (arr, ev) => {
-        console.log(arr, ev, "ieksš funkcijas")
         let isRegistred = arr.find((event) => {
-            return event.event === ev;
+            return event.event._id === ev;
         });
         return isRegistred;
     }
@@ -100,10 +93,13 @@ function Event(props) {
                 <h3>{filteredEvent.location}</h3>
 
                 {filteredEvent.registrationOpen && token && !closeRegistrationForUser && !userAlreadyRegistred ? <button onClick={openModal} className="register_button">Reģistrēties skrējienam</button> : null}
-                {closeRegistrationForUser || userAlreadyRegistred ? <button className="register_button_disabled">Reģistrēts</button> : null}
+                {closeRegistrationForUser || userAlreadyRegistred ? <div>
+                    <button className="register_button_disabled">Reģistrēts</button>
+                    <Link className="link_to_profile_registrations" to={`/profile/${token}`}>Apskatīt reģistrācijas</Link>
+                </div> : null}
 
 
-                {!token && filteredEvent.registrationOpen ? <p className="event_avaliable_closed_message">Lai reģistrētos skrējienam, lūgums autorizēties</p> : null}
+                {!token && filteredEvent.registrationOpen ? <p className="event_avaliable_closed_message">Lai reģistrētos skrējienam, lūgums autentificēties</p> : null}
                 {!filteredEvent.registrationOpen ? <p className="event_avaliable_closed_message">Šim skrējienam reģistrācija vēl nav atvērta vai jau beigusies</p> : null}
             </div>
             <div className="event_description">

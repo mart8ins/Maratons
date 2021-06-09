@@ -1,20 +1,24 @@
 import Runner from "../runners/Runner";
 import { useLocation } from "react-router-dom";
-import { useContext } from "react";
-import { EventContext } from "../../context/EventContext";
+import { useEffect, useState } from "react";
+import { getEventRunners } from "../../fetch/events";
 import "./eventStyle.css";
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 
-function EventRunnerList() {
-    const { allEvents } = useContext(EventContext);
+function EventRunnerList(props) {
+    const { eventId } = props.match.params;
+    const [registredRunners, setRegistredRunners] = useState([])
+
+    useEffect(() => {
+        getEventRunners(eventId).then((response) => {
+            setRegistredRunners(response.data)
+        })
+    }, [])
+
     const query = useQuery().get("event");
-
-    const filteredEvent = allEvents.filter(event => event.event == query);
-    const registredRunners = filteredEvent[0].registredRunners;
-
 
     return <div className="event_runner_list_container">
         <h3>{query} dalībnieku saraksts</h3>

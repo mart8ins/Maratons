@@ -23,7 +23,7 @@ function EventRegistrationModal({ event, closeModal, setCloseRegistrationForUser
     const eventId = event._id;
     const choosenDistance = distance;
     const userId = token;
-    const response = await axios.post("http://localhost:4001/api/events/register", { eventId, choosenDistance, userId });
+    await axios.post("http://localhost:4001/api/events/register", { eventId, choosenDistance, userId });
     setCloseRegistrationForUser(true);
     closeModal();
   }
